@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Predicting Flags</title>
+    </head>
+    <body>
+        <h2 align="center">Predicting Flags from 1990</h2>
+        <div align="center">
+            <form id="flagForm">
+                <label for="stripes">How many Stripes does it have:</label>
+                <input type="number" id="stripes" name="stripes"><br><br>
+                <label for="colors">How many Colors does it have:</label>
+                <input type="number" id="colors" name="colors" max="6"><br><br>
+                <div>
+                    <label for="red">Red</label>
+                    <input type="checkbox" name="red" value="Red"><br><br>
+                    <label for="green">Green</label>
+                    <input type="checkbox" name="green" value="Green"><br><br>
+                    <label for="blue">Blue</label>
+                    <input type="checkbox" name="blue" value="Blue"><br><br>
+                    <label for="gold">Gold</label>
+                    <input type="checkbox" name="gold" value="Gold"><br><br>
+                    <label for="white">White</label>
+                    <input type="checkbox" name="white" value="White"><br><br>
+                    <label for="black">Black</label>
+                    <input type="checkbox" name="black" value="Black"><br><br>
+                    <label for="orange">Orange</label>
+                    <input type="checkbox" name="orange" value="Orange"><br><br>
+                </div>
+                <label for="circles">How many Circles does it have:</label>
+                <input type="number" id="circles" name="circles"><br><br>
+                <label for="crosses">How many Crosses does it have:</label>
+                <input type="number" id="crosses" name="crosses"><br><br>
+                <label for="saltires">How many Saltires does it have:</label>
+                <input type="number" id="saltires" name="saltires"><br><br>
+                <label for="quarters">How many Quarters does it have:</label>
+                <input type="number" id="quarters" name="quarters"><br><br>
+                <label for="sunstars">How many Sunstars does it have:</label>
+                <input type="number" id="sunstars" name="sunstars"><br><br>
+                <div>
+                    <label for="crescent">Crescent</label>
+                    <input type="checkbox" name="crescent" value="Crescent"><br><br>
+                    <label for="triangle">Triangle</label>
+                    <input type="checkbox" name="triangle" value="Triangle"><br><br>
+                    <label for="animate">Animate</label>
+                    <input type="checkbox" name="animate" value="Animate"><br><br>
+                    <label for="icon">Icon</label>
+                    <input type="checkbox" name="icon" value="Icon"><br><br>
+                    <label for="text">Text</label>
+                    <input type="checkbox" name="text" value="Text"><br><br>
+                </div>
+                <button type="button" id="predictBtn">Predict</button>
+            </form>
+        </div>
+        <h3 align="right">github.com/Branko420/project_for_uni</h3p>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
