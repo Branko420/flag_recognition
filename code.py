@@ -15,15 +15,24 @@ classifier.fit(data, labels)
 
 @app.route('/')
 def index():
-    return render_template("adding_values_to_predict_with.html")
+    return render_template('adding_values_to_predict_with.html')
 
-#data i want to predict with
-new_data_point = [[3,5,1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1,0]]
+@app.route('/receive_json_data', methods=['POST'])
+def get_jason():
+    json = request.get_json()
+    print(json)
+    return json
 
-predicted_probability = classifier.predict_proba(new_data_point)
-#geting the top 3 predictions 
-top_indices =  np.argpartition(predicted_probability, -3, axis=1)[:,-3:]
-top_three_countries = [[flags.iloc[i]["Name"] for i in indice] for indice in top_indices]
+@app.route('/predict', methods=['POST'])
+def predict():
+    new_data_point = [[3,5,1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1,0]]
 
-print("Predicted country:", top_three_countries[0][::-1])
+    predicted_probability = classifier.predict_proba(new_data_point)
+    #geting the top 3 predictions 
+    top_indices =  np.argpartition(predicted_probability, -3, axis=1)[:,-3:]
+    top_three_countries = [[flags.iloc[i]["Name"] for i in indice] for indice in top_indices]
+
+    print("Predicted country:", top_three_countries[0][::-1])
+if __name__=="__main__":
+    app.run(debug=True)
 #type:ignore
