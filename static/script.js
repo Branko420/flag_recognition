@@ -1,7 +1,7 @@
 document.getElementById('predictBtn').addEventListener('click', function(){
     const got_form = new FormData(document.getElementById('flagForm'));
 
-    var values = {
+    const values = {
         'stripes': 0,
         'colors':0,
         'red':0,
@@ -23,18 +23,11 @@ document.getElementById('predictBtn').addEventListener('click', function(){
         'text':0
     };
     got_form.forEach((value, key) => {
-        if(value===''){
-            values[key]=0
-        }else{
-            if (key.endsWith('s')) {
-               values[key] = parseInt(value);
-            }
-            values[key] = value === 'on' ? 1:0;
-        }
-    });
+        values[key] = value === '' ? 0 : key.endsWith("s") ? parseInt(value) : value === 'on' ? 1:0;
+        });
     console.log(values);
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/receive_json_data', true);
+    xhr.open('POST', '/predict', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(values));
 })
