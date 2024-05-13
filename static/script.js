@@ -26,8 +26,24 @@ document.getElementById('predictBtn').addEventListener('click', function(){
         values[key] = value === '' ? 0 : key.endsWith("s") ? parseInt(value) : value === 'on' ? 1:0;
         });
     console.log(values);
+
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/predict', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.open('POST', '/json_to_predict_with', true);
+    xhr.setRequestHeader('Content-Type' , 'application/json');
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === XMLHttpRequest.DONE){
+            if(xhr.status === 200){
+                console.log("Added the json to flask")
+                fetch('/predict')
+                    .then(response => response.text())
+                    .then(html =>{
+                        document.body.innerHTML =html
+                    })
+                    .catch(err => console.log(err))
+            }else
+                console.log("Didnt added to flask")
+        }
+    };
     xhr.send(JSON.stringify(values));
+
 })
