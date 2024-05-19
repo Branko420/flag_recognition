@@ -2,7 +2,8 @@ document.getElementById('predictBtn').addEventListener('click', function(){
     const got_form = new FormData(document.getElementById('flagForm'));
 
     const values = {
-        'stripes': 0,
+        'bars': 0,
+        'stripes':0,
         'colors':0,
         'red':0,
         'green':0,
@@ -18,8 +19,8 @@ document.getElementById('predictBtn').addEventListener('click', function(){
         'sunstars': 0,
         'crescent':0,
         'triangle':0,
-        'animate':0,
         'icon':0,
+        'animate':0,
         'text':0
     };
     got_form.forEach((value, key) => {
